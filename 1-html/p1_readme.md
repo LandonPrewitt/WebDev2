@@ -16,3 +16,12 @@
 * **height** : Adjust height
 * **align** : Align the image to the border
 
+### Forms
+
+* Input:  
+    * Types: text, checkbox, radio, and submit
+    * value: default for each type
+* Submit: 
+    * option tags
+    
+
