@@ -2,7 +2,8 @@
 
 ### Lists
 
-**Ordered List** = <ol></ol>
-**Unorderd List** = <ul></ul>
-start = "x" for ordered lists
-type = "A" for ordered lists
+* **Ordered List** = "<ol></ol>"
+  * start = "x" for ordered lists
+  * type = "A" for ordered lists
+* **Unorderd List** = "<ul></ul>"
+
