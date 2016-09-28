@@ -1,4 +1,4 @@
-#Learned
+#Learned - HTML
 
 ### Lists
 
@@ -39,6 +39,14 @@
 * a href="#top"
 * a href="#id_name"
 
+### iframes
+
+* **src**
+* width, height, border, etc...
+* this is a very cool feature
+
 ### Notes
 
-* To add html characters, i.e. &#62; use character entities.
+* To add html characters, i.e. &#62; &#63; use character entities.
+* hr = horizontle rule = line break
+
