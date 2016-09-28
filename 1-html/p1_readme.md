@@ -27,11 +27,11 @@
 ### Tables
 
 * Table
-	*thead
-	*tbody
-		*Tr
-			*td
-    		*th
+	* thead
+	* tbody
+		* Tr
+			* td
+    		* th
 
 ### Links
 
