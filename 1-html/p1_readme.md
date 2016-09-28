@@ -23,5 +23,22 @@
     * value: default for each type
 * Submit: 
     * option tags
-    
 
+### Tables
+
+* Table
+	*thead
+	*tbody
+		*Tr
+			*td
+    		*th
+
+### Links
+
+* a href="link"
+* a href="#top"
+* a href="#id_name"
+
+### Notes
+
+* To add html characters, i.e. &#62; use character entities.
