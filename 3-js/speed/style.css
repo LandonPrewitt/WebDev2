@@ -1,0 +1,11 @@
+            #timeText {
+                font-weight: bold;
+            }
+            
+            #avgText {
+                font-weight: bold;
+            }
+            
+            div {
+                position: relative;
+            }
