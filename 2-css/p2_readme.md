@@ -6,6 +6,7 @@
 * style="thing to change : value; next style"
 * in-line css: style is written directly within the tags
 * internal css: create a stylesheet within the html
+* external css: create a seperate file for css. In your html just ref it as a link with rel="stylesheet" and type = "text/css", and href="filename.css"
 
 ### classes
 
@@ -55,3 +56,4 @@
 * HTML Color Code: Use to get all colors
 * To get rid of standard margin, padding, set them to 0 in body / paragrpahs / etc.
 * Lorem ipsum - use to get sample text 
+* add !important to add priority to style over others
