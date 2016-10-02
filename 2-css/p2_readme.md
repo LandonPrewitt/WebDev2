@@ -30,6 +30,10 @@
 * use float to position an element rather than default
 * use clear to ignore floats and continue default positioning
 
+### Links
+
+* href, target, 
+
 ### Styling Elements
 
 * **Width, Height**
@@ -41,8 +45,13 @@
 * **left, right, top, bottom** 
 * **margin:** add a margin around the element (whole), (top/bottom, left/right), (t, r, b, l)
 * **padding:** same properties as margin but opposite effect inside the elements
+* **border:** width, color, style (radius optional)
+* **font:** family, weight, style, size you can link new font using href font with google link
+* **text:** decoration, align, 
+* **sudo Selector**  hover, visited, i.e. a:hover (options for when hovered)
 
 ### Extra Notes
 
 * HTML Color Code: Use to get all colors
 * To get rid of standard margin, padding, set them to 0 in body / paragrpahs / etc.
+* Lorem ipsum - use to get sample text 
