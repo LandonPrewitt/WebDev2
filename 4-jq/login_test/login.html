@@ -1,0 +1,154 @@
+<html>
+
+    <head>
+        
+        <title>JQuery</title>
+        
+        <script type="text/javascript" src="jquery.min.js"></script>
+        
+    <!--    <link href="jquery-ui/jquery-ui.css" rel="stylesheet"> -->
+        
+    <!--    <script src="jquery-ui/jquery-ui.js"></script> -->
+        
+        <style ="text/css">
+        
+            body {
+                
+                font-family: helvetica, sans-serif;
+                font-size: 130%;
+            }
+            
+            input {
+                
+                height: 40px;
+                width: 320px;
+                padding: 5px 5px 12px 5px;
+                font-size: 25px;
+                border-radius: 5px;
+                border: 1px solid grey;
+            }
+            
+            label {
+                position: relative;
+                top: 5px;
+                width: 200px;
+                float: left;
+            }
+            
+            #wrapper {
+                
+                width: 550px;
+                margin: 0 auto;
+            }
+            
+            .formelement {
+                margin-bottom: 10px;
+            }
+            
+            #submitButton {
+                width: 130px;
+                margin-left: 200px;
+            }
+            
+            #errorMessage {
+                color: red;
+                font-size: 80%;
+            }
+            
+            #successMessage {
+                color: greenyellow;
+                font-size: 80%;
+                margin-bottom: 10px;
+            }
+            
+        </style>
+
+    </head>
+    
+    <body>
+        
+        <div id="wrapper"> 
+            
+            <div id="successMessage">Signup Successful!</div>
+            <div id="errorMessage"></div>
+            <div class="formelement">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="eg.yourname@gmail.com">
+            </div>
+            <div class="formelement">
+                <label for="phone">Telephone</label>
+                <input type="text" name="phone" id="phone" placeholder="xxx-xxx-xxxx">
+            </div>
+            <div class="formelement">
+                <label for="passworld">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="formelement">
+                <label for="passwordConfirm">Confirm Password</label>
+                <input type="password" name="passwordConfirm" id="passwordConfirm">
+            </div>
+            <div class="formelement">
+                <input type="submit" id="submitButton" value="Sign Up">
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            
+            function isEmail(email) {
+                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                return regex.test(email);
+            }
+            
+            $("#errorMessage").hide();
+        
+            $("#submitButton").click(function() {
+                
+                var errorMessage = "";
+                var missingFields = "";
+                
+                if(!isEmail($("#email").val())) {
+                    errorMessage += "<p>Your email address is not valid</p>";
+                }
+                
+                if($("#email").val() == "") {
+                    missingFields += "<p>* Email</p>";
+                }
+                
+                if(!$.isNumeric($("#phone").val())) {
+                    errorMessage += "<p>Your Telephone number is not valid</p>";
+                }
+                
+                if($("#phone").val() == "") {
+                    missingFields += "<p>* Phone</p>";
+                }
+                
+                if($("#password").val() != $("#passwordConfirm").val()) {
+                    errorMessage += "<p>Your passwords do not match</p>"
+                }
+                
+                if($("#password").val() == "") {
+                    missingFields += "<p>* Password</p>";
+                }
+                
+                if($("#passwordConfirm").val() == "") {
+                    missingFields += "<p>* Password Confirmation</p>";
+                }
+                
+                if(missingFields != "") errorMessage += "<p>---- Missing Fields ----</p>" + missingFields;
+                if(errorMessage != "") {
+                    $("#errorMessage").html(errorMessage);
+                    $("#errorMessage").show();
+                    $("#successMessage").hide();
+                } else {
+                    $("#errorMessage").hide();
+                    $("#successMessage").show();
+                }
+                
+            })
+            
+        </script>
+    
+    </body>
+
+
+</html>
