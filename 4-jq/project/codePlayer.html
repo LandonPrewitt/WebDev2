@@ -1,0 +1,222 @@
+<html>
+
+    <head>
+        
+        <title>JQuery</title>
+        
+        <script type="text/javascript" src="../jquery.min.js"></script>
+        
+        <link href="../jquery-ui/jquery-ui.css" rel="stylesheet">
+        
+        <script src="../jquery-ui/jquery-ui.js"></script>
+        
+        <style ="text/css">
+        
+            body {
+                
+                font-family: sans-serif;
+                padding: 0;
+                margin: 0;
+                
+            }
+            
+            #header {
+                
+                width: 100%;
+                height: 25px;
+                background-color: #EEEEEE;
+                padding: 5px;
+                border-bottom: 1px solid #bfbfbf;
+                
+            }
+            
+            #logo {
+                
+                float: left;
+                position: relative;
+                top: 5px;
+                font-weight: bold;
+                
+            }
+            
+            #buttonContainer {
+                
+                width: 300px;
+                margin: 0 auto;
+
+                
+            }
+            
+            .toggleButton {
+                
+                position: relative;
+                float: left;
+                border: 1px solid #d4d4d4;
+                padding: 7px; 
+                font-size: 13;
+                top: -2px;
+                -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none;   /* Chrome/Safari/Opera */
+                -khtml-user-select: none;    /* Konqueror */
+                -moz-user-select: none;      /* Firefox */
+                -ms-user-select: none;       /* Internet Explorer/Edge */
+                user-select: none;
+                cursor: pointer;
+                
+            }
+
+            .toggleButton:hover {
+
+                background-color: #d4d4d4;
+
+            }
+            
+            #html {
+            	
+            	border-top-left-radius: .5em;
+            	border-bottom-left-radius: .5em;
+            }
+            
+            #output {
+            	
+            	border-top-right-radius: .5em;
+            	border-bottom-right-radius: .5em;
+            }
+
+            .active {
+
+                background-color: #ebf4ff
+
+            }
+
+            .active:hover {
+
+                background-color: #ffffff;
+
+            }
+
+            textarea {
+
+                width: 50%;
+                resize: none;
+
+            }
+
+            .panel {
+                float: left
+                border-top: none;
+                border-left: none;
+                border-bottom: none;
+            }
+
+            #outputPanel {
+                border: none;
+            }
+
+            #htmlPanel {
+                border-top: none;
+            }
+
+            #cssPanel {
+                border-top: none;
+            }
+
+            #javascriptPanel {
+                border-top: none;
+            }
+
+            .hidden {
+                display: none;
+            }
+            
+        </style>
+
+    </head>
+    
+    <body>
+        
+        
+        <div id="header"> 
+        
+            <div id="logo">CodePlayer</div>
+            
+            <div id="buttonContainer">
+            
+                <div class="toggleButton" id="html">HTML</div>
+                <div class="toggleButton" id="css">CSS</div>
+                <div class="toggleButton" id="javascript">JavaScript</div>
+                <div class="toggleButton" id="output">Output</div>
+                
+            </div>
+            
+        </div>
+
+        <div id="bodyContainer">
+
+
+            <textarea id="htmlPanel" class="panel"> Hello World! </textarea>
+
+            <textarea id="cssPanel" class="panel hidden"> p{color: blue;} </textarea>
+
+            <textarea id="javascriptPanel" class="panel hidden"> var test = 0; </textarea>
+
+            <iframe id="outputPanel" class="panel"> </iframe>
+
+        </div>
+        
+        <script type="text/javascript">
+
+            $("#html").toggleClass("active");
+
+            $("#output").toggleClass("active");
+            
+            $(".toggleButton").click(function() {
+
+                $(this).toggleClass("active");
+
+                var panelId = $(this).attr("id") + "Panel";
+
+                $("#" + panelId).toggleClass("hidden");
+
+                var activePanels = (4 - $(".hidden").length)
+
+                $(".panel").width(($(window).width() / activePanels) - 15);
+
+            }) 
+
+            $(".panel").height($(window).height() - $("#header").height() - 18);
+
+            $(".panel").width(($(window).width() / 2) - 14);
+
+            $("textarea").on('change keyup paste', function() {
+                $("#outputPanel").contents().find("html").html($("#htmlPanel").val());
+            });
+
+            $("textarea").keydown(function(e) {
+                if(e.keyCode === 9) { // tab was pressed
+                    // get caret position/selection
+                    var start = this.selectionStart;
+                    var end = this.selectionEnd;
+
+                    var $this = $(this);
+                    var value = $this.val();
+
+                    // set textarea value to: text before caret + tab + text after caret
+                    $this.val(value.substring(0, start)
+                                + "\t"
+                                + value.substring(end));
+
+                    // put caret at right position again (add one for the tab)
+                    this.selectionStart = this.selectionEnd = start + 1;
+
+                    // prevent the focus lose
+                    e.preventDefault();
+                }
+            });
+            
+        </script>
+    
+    </body>
+
+
+</html>
